@@ -238,6 +238,11 @@ def generate_animation(anim_name):
     json.dump(timeline, f)
     f.close()
 
+    f = open('%s.html' % anim_name, 'wb')
+    html = open(os.path.join(os.path.dirname(__file__), 'template.html')).read().format(name=anim_name)
+    f.write(html)
+    f.close()
+
 
 if __name__ == '__main__':
     generate_animation(sys.argv[1])

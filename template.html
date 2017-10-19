@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+
+<head>
+<script type="text/javascript" src="anim.js"></script>
+<script type="text/javascript" src="{name}_anim.js"></script>
+</head>
+
+<body>
+
+<p>Example Animation. Please ensure you've run anim_encoder.py to generate the required data.
+
+<div id="anim_fallback" class="anim_target"><canvas id="anim_target" class="anim_target"></canvas></div>
+
+<script>
+	set_animation("{name}_packed.png", {name}_timeline, 'anim_target', 'anim_fallback');
+</script>
+
+</body>
