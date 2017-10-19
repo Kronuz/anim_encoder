@@ -160,7 +160,7 @@ def generate_animation(anim_name):
 
     # Generate a packed image
     allocator = Allocator2D(MAX_PACKED_HEIGHT, iw)
-    packed = zeros((MAX_PACKED_HEIGHT, iw, 3), dtype=uint8)
+    packed = None
 
     # Sort the rects to be packed by largest size first, to improve the packing
     rects_by_size = []
@@ -181,6 +181,9 @@ def generate_animation(anim_name):
     for size,i,j in rects_by_size:
         src = images[i]
         src_rects = img_areas[i]
+
+        if packed is None:
+            packed = zeros((MAX_PACKED_HEIGHT, iw, src.shape[2]), dtype=uint8)
 
         a, b = src_rects[j]
         sx, sy = b.start, a.start
